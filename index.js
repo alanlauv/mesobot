@@ -24,7 +24,6 @@ bot.on('message', function(data) {
     console.log("--------------------");
     switch(data.type) {
         case 'message':
-            console.log("DM was sent from user: " + data.user + " with message: " + data.text);
             let payload = { token: this.token, user: data.user };
             let r = request(
                 {
@@ -35,8 +34,6 @@ bot.on('message', function(data) {
                     if (!error && response.statusCode == 200) {
                         var body = JSON.parse(raw);
                         if (body.ok === true) {
-                            console.log("FOUND USERNAME");
-                            console.log(body.user.name);
                             bot.postMessageToUser(body.user.name, 'Command ' + data.text + ' is not supported!', params);
                         }
                     }
