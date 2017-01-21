@@ -7,12 +7,11 @@ var currentPath = './';
 var fileNames;
 var newFileNames;
 
-// create a bot
 var bot = new SlackBot({
     token: fs.readFileSync('token').toString(),
     name: 'Meso Bot'
 });
- 
+
 var params = {
     icon_url: 'https://avatars.slack-edge.com/2017-01-11/125963055763_2dab9f95b7c28ff6fa55_72.png'
 };
